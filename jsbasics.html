@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    body{
+        background-image:url('image/page1.png');
+        background-size: cover;
+        background-attachment: fixed;
+        padding-bottom:100px;
+    }
+h1
+{
+    font-size:30px;
+    text-align: center;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+}
+object
+{
+    width: 650px;
+    height:400px;
+    float:right;
+    margin-right:50px;
+}
+h2
+{
+    font-size:20px;
+    text-decoration: underline;
+    color:#1995ad;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h3{
+    font-size:20px;
+    text-decoration: underline;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+p
+{    
+    font-family:'Times New Roman', Times, serif;
+    font-size:20px;
+    text-indent: 30px;
+    padding-left: 30px;
+    padding-right:60px;
+    text-align: justify;
+}
+button
+{
+    height: 40px;
+    width:100px;
+
+ background-color: #333;
+     border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-family: Poppins-Medium;
+    text-align: center;
+    color:cyan;
+    cursor: pointer;
+    margin-left: 100px;
+}
+textarea
+{
+    background-color: #333;
+    color:white;
+    height:150px;
+    width:80%;
+    display: none;
+    scroll-behavior: unset;  
+    border-radius:20px;
+    margin-top:10px; 
+    padding-top:20px;
+    font-size:20px; 
+    margin-left:50px;
+}
+td,tr
+{
+    border: 1px solid #ddd;
+}
+</style>
+<script>
+
+function view(a)
+{
+    switch(a)
+    {
+        case 1:document.getElementById('syntax').style.display="block";
+        break;
+        case 2:document.getElementById('comments').style.display="block";
+        break;
+        case 3:document.getElementById('variables').style.display="block";
+        break;
+        case 4:document.getElementById('datatypes').style.display="block";
+        break;
+        case 5:document.getElementById('operators').style.display="block";
+        break;
+        case 6:document.getElementById('ifloop').style.display="block";
+        break;
+        case 7:document.getElementById('elseloop').style.display="block";
+        break;
+        case 8:document.getElementById('elseifloop').style.display="block";
+        break;
+        case 9:document.getElementById('switchcase').style.display="block";
+        break;
+        case 10:document.getElementById('whileloop').style.display="block";
+        break;
+        case 11:document.getElementById('dowhileloop').style.display="block";
+        break;
+        case 12:document.getElementById('forloop').style.display="block";
+        break;
+        case 13:document.getElementById('forinloop').style.display="block";
+        break;
+        default:
+        break;
+               
+    }
+}
+
+</script>
+</head>
+<body>
+    <div>
+    <h1>JAVASCRIPT INTRO</h1>
+     <h3>What is JavaScript?</h3>
+     <p>JavaScript is a lightweight, object-oriented language with first-class functions most known as the scripting language for Web pages. JavaScript is very easy to implement because it is integrated with HTML. It is open and cross-platform</p>
+     
+
+     <h3>What are the uses of Javascript?</h3>
+     <p style="text-indent:0px">1. Javascript programs enables the webpage to detect and react to user initiated events like movement of mouse pointer , keypress etc.
+        <br>
+        2. It adds life to webpage by making them interactive by adding features like scrolling messages, rollovers, navigational aids, dialog boxes, dynamic images, client-side form validation, audio/video player etc..
+        <br>
+        3.Javascript is used to create cookies and read and write values to it.</p>
+        <h3 style="text-decoration:none">Hello world in JavaScript </h3>
+
+      <p>Start  writing JavaScript by opening the code editor and write your first "Hello world" JavaScript code.</p>
+
+           <textarea class="" style="display:block" disabled>  
+             // Hello world in Javascript
+
+    var name = window.prompt("Hello, What is your name");
+  
+    var myfavcolor = window.prompt("What is your favorite color");
+
+    document.write("Hello " + name + " " +" Welcome to JavaScript");
+
+
+    document.bgColor = myfavcolor;
+</textarea>
+<h2>Module 1: Syntax</h2>
+<p style="text-indent:0px">JavaScript borrows most of its syntax from Java but is also influenced by Awk, Perl and Python.
+<br><br>
+        JavaScript is case-sensitive and uses the Unicode character. 
+        <br><br>The javascript code must be placed in between the <b> &lt;script&gt; ...&lt;/script&gt;</b> tags, in case, if you are working with single file.</p>
+         <a  onclick="view(1)" target="viewer"><button >View</button></a>
+         <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+      
+         <textarea id="syntax" disabled >  
+                <script >
+                    // write javascript  between script tags 
+                </script> 
+        </textarea>
+
+        <h2>Module 2: Comments</h2>
+        <h3 style="text-decoration:none">Single Line Comments</h3>
+
+
+        <p>Single line comments in JavaScript  start with //.</p>
+        <p>Any text between // and the end of the line, will be ignored by JavaScript (will not be executed).</p>
+       
+       <h3 style="text-decoration:none">Multi-line Comments</h3>
+        
+        <p>
+        Multi-line comments start with /* and end with */.
+        </p>
+        <p>
+        Any text between /* and */ will be ignored by JavaScript.
+        </p>
+       
+         <a  onclick="view(2)" target="viewer"><button >View</button></a>
+         <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+       
+        
+         <textarea id="comments" disabled>
+           
+     // a single line comment
+
+    var a = 10;   // declaring a variable in javascript
+    var stringname = "JavaScript"  // declaring a string javascript exception
+    document.writeln(a); 
+    document.writeln(stringname);
+        
+    /* this is a longer, 
+       multi-line comment
+    */
+        
+        </textarea>
+        
+        <h2>Module 3: Javascript variables</h2>
+<p style="text-indent:0px">JavaScript variables can be delcared using the variable name like below</p>
+     <a  onclick="view(3)" target="viewer"><button >View</button></a>
+         <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+      
+         <textarea id="variables" disabled >  
+    var myname; 
+
+    var myname = "John";//To assign a value to the variable, use the equal sign
+    var person = "John Doe", carName = "Volvo", price = 200; //Declaring more than one variable
+        </textarea>
+        <h2>Module 4: Javascript Identifiers</h2>
+        <p style="text-indent:0px">JavaScript Identifiers are named; names that you give things in JavaScript. </p>
+        <ul style="font-size:20px;">
+            <li>variables </li>
+            <li>functions</li>
+            <li>objects</li>
+            <li>properties</li>
+            <li>methods</li>
+            <li>events</li>
+        </ul>
+          
+            <p> There are some rules to follow while using the JavaScript language </p>
+        
+            <ul  style="font-size:20px;">
+             <li>Identifiers can only contain letters, numbers, underscore (_) and the dollar sign ($). </li>
+             <li>Identifiers cannot start with a number. </li>
+             <li> Identifiers are case-sensitive.</li> 
+             <li> Identifiers can be any length.</li>
+             <li>Identifiers can not be the same as JavaScript reserved words. (See list of reserved words)</li>
+             <li> Don't use global properties and methods as identifiers (more later).</li>
+             <li>  Don't use words similar to reserved words.</li>
+        
+            </ul>
+        
+            
+            <p>When naming an identifier with two words in it, it's a best practice to use camel case. With this convention, the first letter of each word, excluding the first word, is uppercase. Example:</p>
+        
+   
+        <textarea style="display:block" disabled>
+        firstName
+        myCommonVariableName
+        </textarea>
+        
+     
+        <p>Here are some examples of valid identifier naming conventions:
+        </p>
+       
+        <textarea style="display:block" disabled>
+        firstname
+        totalPrice
+        cust_1
+        click_calculate
+        $
+        $total
+        </textarea>
+        
+        <h3 style="text-decoration:none;">JavaScript Data Types</h3>
+<p>
+JavaScript variables can hold different data types like numbers, string, and complex data types as well. In this javascript language, we call text related values as strings.</p>
+<p>
+ Lets look at the how numbers and strings can be used in JavaScript program. Here strings are written within the single or double quotes whereas numbers can be written without quotes.</p>
+        <br>    
+             <a  onclick="view(4)" target="viewer"><button >View</button></a>
+                 <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+              
+                 <textarea id="datatypes" disabled >  
+                   
+        var name= "Williams";  // name is a string 
+        var jobRole = "Software Engineer";
+        var salary = 40000; // salary is a number
+                     
+        //Declaring JavaScript Variables before using it
+
+        var firstVar = "Welcome to ";
+        secondVar = firstVar + "SnoopCode";    // decaring secondVar on the go
+        alert(secondVar);
+
+        //Reassigning value to Variables
+
+        var myScore = 78;
+
+        alert("Initial myScore variable value is : " + myScore);  // current value is 78 
+
+
+        myScore = 81;
+        alert("myScore variable  value changed to: " + myScore);   
+         // value changed to 81
+
+         myScore = 96;
+         alert("myScore variable  value changed to: " + myScore);   
+         // variable  value reassigned 96 
+
+
+        myScore = 100;
+        alert("myScore variable  value changed to: " + myScore);   // variable again reassigned to 100
+
+
+        // print the finally value of myScore variable
+        document.writeln("The final value of myScore is" +  " " + myScore);
+
+                </textarea>
+
+                <h2>Module 5: Operators</h2>
+                <p style="text-indent:0px">JavaScript has the following types of operators. This section describes the javascript operators and operator precedence.</p>
+                <ul  style="font-size:20px;">
+                    <li> Assignment operators</li>
+                    <li>Comparison operators </li>
+                    <li>Arithmetic operators </li>
+                    <li>Bitwise operators </li>
+                    <li> Logical operators</li>
+                    <li>String operators </li>
+                    <li> Conditional (ternary) operator</li>
+                    <li>Comma operator </li>
+                    <li>Unary operators </li>
+                    <li>Relational operator</li>
+                  </ul>
+                
+                  <h3 >JavaScript Arithmetic Operators</h3>
+                  <p>Arithmetic operators take numerical values (either literals or variables) as their operands and return a single numerical value.</p>
+                  
+                  <p>Arithmetic operators are used to perform arithmetic on numbers</p>
+                  
+                  <p>For more understanding let us assume that value of  y = 10, the table below explains the arithmetic operators with the y value as 10: </p>
+                  <table class="table"  style="font-size:20px;padding: 20px;border-collapse: collapse;">
+                  <tr class="info">
+                    <th>Operator</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                    <th> Result</th>
+                          </tr>
+                  <tr class="info">
+                  <td>
+                  <p><code>+</code>
+                  </p>
+                   </td>
+                   <td>Addition operator.</td>
+                   <td>x = y + 20 </td>
+                   <td> x = 30 and y = 20  </td>
+                        </tr>
+                  <tr class="info">
+                    <td>
+                  <p><code>-</code>
+                  </p>
+                   </td>
+                   <td>Subtraction operator.</td>
+                   <td> x = y - 20</td>
+                   <td>x = -10 and y = 10 </td>
+                         </tr>
+                  <tr class="info">
+                    <td>
+                  <p><code>/</code>
+                  </p>
+                   </td>
+                   <td>Division operator.</td>
+                   <td> x = y / 2</td>
+                   <td> x = 5  and y = 10 </td>
+                       </tr>
+                  <tr class="info">
+                    <td>
+                  <p><code>*</code>
+                  </p>
+                   </td>
+                   <td>Multiplication operator.</td>
+                   <td> x = y * 2</td>
+                   <td> x = 20 and y = 10</td>
+                     </tr>
+                  <tr class="info">
+                    <td>
+                  <p><code>%</code>
+                  </p>
+                   </td>
+                   <td>Remainder operator.</td>
+                   <td> x = y % 2 </td>
+                   <td> x = 5 and y = 10 </td>
+                    </tr>
+                          
+                  </table>
+                  
+                  <br><br/>
+                  
+                  
+                  <h3 >Assignment operators</h3>
+                  <p>
+                  
+                  An assignment operator assigns a value to its left operand based on the value of its right operand.The simple assignment operator is equal (=), which assigns the value of its right operand to its left operand. That is, a = b assigns the value of b to a.
+                  </p>
+                  
+                  <table class="table"  style="font-size:20px;padding: 20px;border-collapse: collapse;">
+                    <tr class="info">
+                      <th>Operator</th>
+                      <th>Description</th>
+                      <th> Shorthand Operator</th>
+                      <th>Meaning</th>
+                     
+                    </tr>
+                    <tr class="info">
+                      <td> <span  title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>=</code></span></td>
+                      <td> Assignment Operator</td>
+                      <td>x = y   </td>
+                      <td> x = y</td>
+                                </tr>
+                    <tr class="info">
+                    <td>  <span  title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>*=</code></span></td>
+                    <td>Multiplication Assignment</td>
+                    <td>x *= y  </td>
+                      <td>x = x * y </td>
+                       
+                     </tr>
+                     <tr class="info">
+                      <td><span  title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>/ =</code></span></td>
+                       <td>Division Assignment</td>
+                       <td>x /= y   </td>
+                      <td>x = x / y </td>
+                                   </tr>
+                     <tr class="info">
+                    <td><span  title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>+ =</code></span></td>
+                       <td>Addition Assignment</td>
+                       <td>x += y  </td>
+                      <td>  x = x + y</td>
+                                         </tr>
+                     <tr class="info">
+                       
+                    <td><span  title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>- =</code></span></td>
+                       <td>Subtraction Assignment</td>
+                       <td>x -= y   </td>
+                      <td>x = x - y </td>
+                                  </tr>
+                    <tr class="info">   
+                    <td><span  title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>% =</code></span></td>
+                       <td>Remainder Assignment</td>
+                       <td>x %= y  </td>
+                      <td>  x = x % y</td>
+                               </tr>
+                     <tr class="info">
+                      <td><span title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>&lt;&lt; =</code></span></td>
+                       <td>Left shift Assignment</td>
+                       <td>   x &lt;&lt;= y   </td>
+                      <td> x = x &gt;&gt; y</td>
+                      <td></td>
+                     </tr>
+                     <tr class="info">
+                      <td><span title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>&gt;&gt; =</code></span></td>
+                       <td>Right shift Assignment</td>
+                       <td>x &gt;&gt;= y  </td>
+                      <td>x = x &gt;&gt; y </td>
+                      <td></td>
+                     </tr>
+                     <tr class="info">
+                      <td><span title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>&gt;&gt;&gt; =</code></span></td>
+                       <td>Unsigned Right shift Assignment</td>
+                       <td>x &gt;&gt;&gt;= y   </td>
+                      <td> x = x &gt;&gt;&gt; y</td>
+                      <td></td>
+                     </tr>
+                     <tr class="info">
+                      <td><span title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>&=</code></span></td>
+                       <td>Bitwise AND Assignment</td>
+                       <td>x &= y   </td>
+                      <td> x = x & y</td>
+                      <td></td>
+                     </tr>
+                        <tr class="info">
+                      <td><span title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>^=</code></span></td>
+                       <td>Bitwise XOR Assignment</td>
+                       <td>x ^= y   </td>
+                      <td>x = x ^ y </td>
+                      <td></td>
+                     </tr>
+                      <tr class="info">
+                      <td><span title="An assignment operator assigns a value to its left operand based on the value of its right operand."><code>| =</code></span></td>
+                       <td>Bitwise OR Assignment</td>
+                       <td>x |= y   </td>
+                      <td> x = x | y</td>
+                      <td></td>
+                     </tr>
+                  </table>
+                  
+                  
+                  <br><br/>
+                  
+                  
+                  
+                  
+                  <h3 >JavaScript Equality operators</h3>
+                  <p>
+                  The equality operator always returns the boolean type as its output based on its comparison</p>
+                  
+                  <table class="table"  style="font-size:20px;padding: 20px;border-collapse: collapse;">  
+                    <tr class="info">
+                      <th>Operator</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr class="info">
+                      <td> <code>==</code></td>
+                      <td> Equality Operator</td>
+                    </tr>
+                    <tr class="info">
+                      <td><code>!=</code></td>
+                      <td>Inequality operator.</td>
+                    </tr>
+                    <tr class="info">
+                      <td><code>===</code> </td>
+                      <td>Identity Operator</td>
+                    </tr>
+                    <tr class="info">
+                      <td><code>!==</code> </td>
+                      <td>Nonidentity Operator</td>
+                    </tr>
+                  </table>
+                  
+                  
+                  
+                  <h3 >Bitwise shift operators</h3>
+                  <p>
+                  Bitwise operators are used to shift all bits of operands
+                  </p>
+                  <table class="table"  style="font-size:20px;padding: 20px;border-collapse: collapse;">
+                    <tr class="info">
+                      <th>Operator</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr class="info">
+                      <td> <code>&lt;&lt;</code></td>
+                      <td> Bitwise left shift Operator</td>
+                    </tr>
+                    <tr class="info">
+                      <td><code>&gt;&gt;</code></td>
+                      <td>Bitwise right shift operator.</td>
+                    </tr>
+                    <tr class="info">
+                      <td> <code>&gt;&gt;&gt;</code></td>
+                      <td>Bitwise unsigned right shift Operator</td>
+                    </tr>
+                  </table>
+                  
+                  <br><br/>
+                  
+                  <h3>JavaScript Binary bitwise operators</h3>
+                  <p>
+                  
+                  Bitwise operators treat their operands as a set of 32 bits (zeros and ones) and return standard JavaScript numerical values
+                  </p>
+                  
+                  <table class="table"  style="font-size:20px;padding: 20px;border-collapse: collapse;">
+                    <tr class="info">
+                      <th>Operator</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr class="info">
+                      <td> <code>&amp;</code></td>
+                      <td> Bitwise AND Operator</td>
+                    </tr>
+                    <tr class="info">
+                         <td> <code>| </code></td>
+                      <td>Bitwise OR operator.</td>
+                    </tr>
+                    <tr class="info">
+                      <td> <code>^ </code></td>
+                      <td>Bitwise XOR  Operator</td>
+                    </tr>
+                  </table>
+                  
+                  <br>  
+                  
+                         <a  onclick="view(5)" target="viewer"><button >View</button></a>
+                         <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+                      
+                         <textarea id="operators" disabled >  
+     <script>
+    function demo(){
+    var num1 = 7;
+    var num2 = 14;
+                                  
+    var result1 = num1 + num2; // additon
+                                  
+    var result2 = num1 - num2; // substraction
+                                  
+    var result3 = num1 * num2; // multiplication
+                                  
+    var result4 = num1 / num2; // division
+                                  
+    var result5 = num1 % num2; // modulus (Remainder)
+                                  
+    document.write("Result for Addition :" + result1 + "<br>" );  
+    document.write("Result for Subtraction :" + result2 + "<br>" ); 
+    document.write("Result for Multiplication :" + result3 + "<br>" );  
+    document.write("Result for division :" + result4 + "<br>");  
+    document.write("Result for modulus :" + result5 + "<br>");  
+    }
+    </script>
+                            
+    <body>
+    <p>Click the button below</p>
+    <button onclick="demo()">Arithmetic Operators</button>
+    </body>
+                        </textarea>
+
+
+                        <h2>Module 6: Javascript Conditionals</h2>
+                        <p style="text-indent:0px">Javascript Conditionals are used to define test conditions to control the flow of the program, if the 
+                            condition is true then the code blocks are executed, if not the alternate code block is executed.</p>
+                            <p style="text-indent:0px">Javascript has three types of Conditionals 
+                                <span >if</span> , <span >if/else </span> , <span >switch</span></p>
+                                <h3 >Javascript  Conditionals - <span style="color:#fa4b2a;">If</span></h3>
+                                <p>The most fundamental Conditional statements is <span class="verge"> if </span>.
+                                    It allows Javascript to make decisions i.e to execute statements based on a Conditional expression.</p>
+                                    <p>If the test condition within the if is <b>true</b> then the Code block within curly braces are executed in a sequential order. </p>
+                                <textarea style="display:block" disabled>
+    <script>
+    if (condition){  
+    Statements;  //Code Block to be executed if the condition is satisfied;
+    }
+    </script>
+                                    </textarea>
+                                    
+                                    <br>  
+                              <a  onclick="view(6)" target="viewer"><button >View</button></a>
+                                 <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+                              
+                                 <textarea id="ifloop" disabled >  
+    <script>
+        function demo(){
+            var age = prompt("What's your current Age?")
+            if(age > 18){
+            
+            document.write("Great, you are an Adult.")
+                }        
+            }      
+        </script>
+        <body>
+        <p>Click below to Check if you are an adult</p>
+        <button onclick="demo()">Conditional: if </button>
+        
+        </body>
+                                </textarea> 
+                                
+                                <h3 >Javascript  Conditionals - <span style="color:#fa4b2a;">else</span></h3>
+                                <p>The Javascript condition <span class="verge">else</span> is used to create a branching construct which allows a two way decision.</p>
+<p> If the condition within the <span class="verge">if</span> expression is evaluated as false, then the code block within the else part is executed.</p>
+                                <textarea style="display:block" disabled>
+<script>
+    if (condition){ 
+        
+    Statements;  // Code Block to be executed if the condition is satisfied;
+    }
+    else
+    {
+    Statements; // Code Block to be executed if the "if" condition is evaluated as false.
+    }
+    </script>
+                                    </textarea>
+                                    
+                                    <br>  
+                              <a  onclick="view(7)" target="viewer"><button >View</button></a>
+                                 <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+                              
+                                 <textarea id="elseloop" disabled >  
+    <script>
+        function demo(){
+            var age = prompt("What's your current Age?")
+            if(age > 18){
+            
+            document.write("Great, you are an Adult.");
+                } 
+            
+            else{
+            
+            document.write("You are still a Kid ");  // prints if the "if" condition is false.
+            }
+            }      
+        </script>
+
+    <body>
+    <p>Click below to Check if you are an adult</p>
+    <button onclick="demo()">Conditional: if/else </button>
+    
+    </body>
+                                </textarea>  
+
+                                <h3 >Javascript  Conditionals - <span style="color:#fa4b2a;">if else/if</span></h3>
+                                <p>The Javascript branching construct <span class="verge">if/ else if </span> is used to create a multidecision structure. </p>
+<p>If the first <b>if</b> is evaluated as true, then the code block within it is executed.
+Or else, the following <b>if else</b> conditions are evaluated and if found true, the code block within it get executed. </p>
+                                <textarea style="display:block" disabled>
+            <script>
+                if (condition){ 
+                    
+                Statement(s);
+                }
+                else if (condition)
+                {
+                
+                Statements(s);
+                }
+                else if (condition)
+                {
+                
+                Statements(s);
+                }
+                else 
+                {
+                
+                Statements(s);
+                }
+                </script>                       
+                           </textarea>
+                                    
+                           <br>  
+                              <a  onclick="view(8)" target="viewer"><button >View</button></a>
+                                 <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+                              
+                                 <textarea id="elseifloop" disabled >  
+        <script>
+            function demo(){
+                
+                var marks = prompt("Whats you score in Math Test?")
+                
+                if(marks > 0 && marks < 40){
+                
+                document.write("Alas! You have Failed!."); //Failed
+                    } 
+                
+                
+                else if( marks >= 40 && marks < 50){
+                
+                document.write("You get Third Class");  //Third Class        
+                }
+                
+                        
+                else if( marks >= 50 && marks < 60){
+                
+                document.write("You get Second Class");  //Second Class
+                }
+                
+                else if( marks >= 60 && marks < 75){
+                
+                document.write("You get First Class");  //First Class
+                }
+                
+                else 
+                {
+                
+                document.write("You get Distinction");  //Distinction
+                }
+                
+                }      
+            </script>
+        
+        <body>
+        <p>Click below to get your Class </p>
+        <button onclick="demo()">Conditional: if else/if </button>
+        
+        </body>
+                                </textarea>  
+                                <h3 >Javascript  Conditionals - <span style="color:#fa4b2a;">Switch Statement</span></h3>
+                                <p>Javascript <span class="verge">switch</span> statement is used  as an alternative to  <span class="verge">if / else if</span> statement, 
+                                    it makes the program more neat and readable while dealing with multiple branching construct.</p>
+                                    <h3 style="text-decoration:none;">How does a switch Statement Works?</h3>
+                                
+                                <p>1. The value of the <span class="verge">switch</span> expression is evaluated once in the beginning</p>	
+                                <p>2. This  <span class="verge">switch</span> expression value is then matched against the expressions, called as <span class="verge">labels</span> following the keyword <span class="verge">case</span></p>
+                                <p>3. If <span class="verge">switch</span> condition is satisfied by any of the cases , then the code block within that case is executed.</p>	
+                                <p>4. If none of the cases are matched then the control drops
+                                 to the <span class="verge">default</span> case.</p>	
+                                <p> Here , the <span class="verge">break</span> statement is used to terminate the program if any of the case satisfies the condition, if omitted then all the cases are matched</p>	
+                                <textarea style="display:block" disabled>
+        <script>
+            switch(expression){
+            case label :
+                statement(s);
+                break;
+                
+            case label :
+                statement(s);
+                break;
+                
+            default: Statement(s);
+            }</script>                  
+                           </textarea>
+                                  <br>  
+
+                              <a  onclick="view(9)" target="viewer"><button >View</button></a>
+                                 <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+                              
+                                 <textarea id="switchcase" disabled >  
+    <script>
+        function demo(){
+            
+            // Accept number between 1 to 5
+            var input = Number( prompt( "Insert a number between 1 to 5") ); 
+            
+            switch( input ) { 
+                
+                // Input value is tested for each case
+            case 1: 
+                document.write( "The number you entered is : 1" ); 
+            break; 
+                
+            case 2: 
+                document.write( "The number you entered is : 2" ); 
+            break;
+                
+            case 3: 
+                document.write( "The number you entered is : 3" ); 
+            break;
+                
+            case 4: 
+                document.write( "The number you entered is : 4" ); 
+            break; 
+                
+            case 5: 
+                document.write( "The number you entered is : 5" ); 
+            break; 
+                
+            default: 
+                document.write( "The number you entered is out of range" ); 
+            break; 
+            }  
+        
+        }
+        
+        </script>
+
+    <body>
+    <p>Click the button below</p>
+    <button onclick="demo()">Execute: Switch()</button>
+    
+    </body>
+                                </textarea>  
+   </div>
+   <h2>Module 7: Javascript Loops</h2>
+   <p>Javascript <span class="verge">Looping</span> Statments are used to repeat a block of code when test condition is found to be <b>true</b> </p>
+<p>In Javascript Loops are created using two statements, the 
+<span class="verge">while</span> statement and  <span class="verge">for</span> statement. The following are the type of looping constructs:</p>
+<p><span class="verge">while</span></p>
+<p><span class="verge">do/while</span></p>
+<p><span class="verge">for</span></p>
+<p><span class="verge">for/in</span></p>
+
+<h3 >Javascript Looping Statement: while </h3>
+	
+
+<p>The Javascript  <span class="verge"> while</span> loop executes the code block within its braces until 
+its test condition evaluates to true (i.e non-zero)</p>
+ <p>The interpreter evaluates the condition every time the before the while loop is executed,
+ if false then the control moves to the statement right after the closing curly braces .</p>
+    <textarea style="display:block" disabled>
+
+<script>
+while(condition){  
+Statements;  //Code Block to be executed if the condition is satisfied;
+
+//increment/decrement counters;
+}
+</script>
+
+               </textarea>
+               
+               <br>  
+         <a  onclick="view(10)" target="viewer"><button >View</button></a>
+            <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+         
+            <textarea id="whileloop" disabled >  
+<script>
+        function demo(){
+            
+            var num = 0; // Initiate loop counter
+            
+            while(num < 12)  // test condition
+            {
+            document.write(num + " "); 
+            
+            num++;  // Increment counter
+            
+            } //End
+        
+        }   
+        </script>
+  
+    <body>
+    <p>Click below to Execute the Script</p>
+    <button onclick="demo()">Loop: while</button>
+    
+    </body>
+           </textarea> 
+           
+           <h3 >Javascript Looping Statement: Do....While </h3>
+	
+
+           <p>The Javascript condition <span class="verge">do/while</span> do while loop continues to execute a block of code repeatedly until the test condition is evaluated to false.</p>
+<p>The structure of <span class="verge">do/while</span> loop is fundamentally different than <span class="verge">while</span> loop.<p>
+<p>In <span class="verge">do/while</span> loop the  condition is evaluated after executing the code, while its opposite with <span class="verge">while</span> loop.</p>
+               <textarea style="display:block" disabled>
+           
+    <script>
+            do{
+            statement(s);
+            }
+            while(condition)
+            </script>
+                          </textarea>
+                          
+                          <br>  
+                    <a  onclick="view(11)" target="viewer"><button >View</button></a>
+                       <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+                    
+                       <textarea id="dowhileloop" disabled >  
+        <script>
+                function demo(){
+                    
+                    var num = 0; // Initiate loop counter
+                    
+                    do
+                    {
+                        document.write(num + " "); 
+                        
+                    num++;  // Increment counter
+                        
+                    } //End
+                    
+                    while(num < 12)  // test condition
+                    }    
+                </script>
+    
+            <body>
+                <p>Click below to Check if you are an adult</p>
+                <button onclick="demo()">Loops : do/while</button>
+            
+            </body>
+                      </textarea>    
+                      <h3 >Javascript Looping Statement: For Loop </h3>
+                      <p>The Javascript <span class="verge">for</span> loop is a simplified form of looping statement in which the conditions are initialized, evaluated and changed in a compact form. </p>
+                      <p>A standard for statement consists of <span class="verge">three</span> clauses in parentheses: </p>
+                      <p>The first clause <span class="verge">initializes</span> the expression.</p>
+                      
+                      <p>The second clause sets the <span class="verge">test</span> condition for the loop to be executed.</p>
+                      
+                      <p>The third clause is used to <span class="verge">increment</span> the counter of the loop </p>	
+        <textarea style="display:block" disabled>
+           
+        <script>
+                for(initialize ; test ; increment/decrement)
+                {
+                statement(s);
+                }
+                </script>
+                          </textarea>
+                          
+                          <br>  
+                    <a  onclick="view(12)" target="viewer"><button >View</button></a>
+                       <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+                    
+                       <textarea id="forloop" disabled >  
+        <script>
+        function demo(){
+        for(var i = 0; i < 10; i++)
+        {
+        document.write(i + " "); 
+        }    
+        }      
+        </script>
+
+        <body>
+        <p>Click here to run the demo </p>
+        <button onclick="demo()">Loop : for</button>
+
+        </body>
+                      </textarea>    
+
+
+                      <h3 >Javascript Looping Statement: for/in  </h3>
+                      <p> Javascript <span class="verge">for/in</span> loop is used to work with arrays and objects.It executes the code block for each element in the array.</p>
+	<p> It enables the user to loop through each element in the array with having to know the number of element the array actually contains</p>
+<p> Rather than working with index number of each element, it automatically moves to the next index with each iteration.</p>	
+        <textarea style="display:block" disabled>
+            <script>
+            for(index in arrayName)
+            {
+            // Code Block
+            }
+            </script>
+                          </textarea>
+                          
+                          <br>  
+                    <a  onclick="view(13)" target="viewer"><button >View</button></a>
+                       <a  href="http://www.snoopcode.com/javascript/javascript-practice-editor" target="viewer"><button >Try It now</button></a>
+                    
+                       <textarea id="forinloop" disabled >  
+        <script>
+                function demo(){
+                var phone = new Array(5);
+                phone[0] = "Apple";
+                phone[1] = "Samsung";
+                phone[2] = "Sony";
+                phone[3] = "Nexus";
+                phone[4] = "Nokia";      
+                
+                for (var i in phone)
+                {
+                    document.write("phone[" + i + "]  = " + phone[i] + "<br/>");        
+                }
+                
+                }
+                
+                </script>
+            </head>
+            <body>
+            <p>Click the button below</p>
+            <button onclick="demo()">loop: for/in</button>
+            
+            </body>                      
+        </textarea> 
+
+<br><br><br>
+<button style="height:50px;width:350px;" onclick="window.open('quiz.html')">CLICK TO TAKE YOUR LEVEL 1 TEST</button>
+
+</body>
+</html>

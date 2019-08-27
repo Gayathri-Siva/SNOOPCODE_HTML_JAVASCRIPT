@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+#star-five {
+      margin: 50px 0;
+      position: relative;
+      display: block;
+      color: gold;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid gold;
+      border-left: 100px solid transparent;
+      transform: rotate(35deg);
+      animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+    }
+    #star-five:before {
+      border-bottom: 80px solid gold;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      position: absolute;
+      height: 0;
+      width: 0;
+      top: -45px;
+      left: -65px;
+      display: block;
+      content: '';
+      transform: rotate(-35deg);
+    }
+    #star-five:after {
+      position: absolute;
+      display: block;
+      color: gold;
+      top: 3px;
+      left: -105px;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid gold;
+      border-left: 100px solid transparent;
+      transform: rotate(-70deg);
+      content: '';
+    }
+    #star-five1 {
+      margin: 50px 0;
+      position: relative;
+      display: block;
+      color: black;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid black;
+      border-left: 100px solid transparent;
+      transform: rotate(35deg);
+      animation: moveX1 4.05s linear 0s infinite alternate, moveY1 4.4s linear 0s infinite alternate;
+  
+    }
+    #star-five1:before {
+      border-bottom: 80px solid rgb(7, 7, 7);
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      position: absolute;
+      height: 0;
+      width: 0;
+      top: -45px;
+      left: -65px;
+      display: block;
+      content: '';
+      transform: rotate(-35deg);
+    }
+    #star-five1:after {
+      position: absolute;
+      display: block;
+      color: rgb(7, 7, 7);
+      top: 3px;
+      left: -105px;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid rgb(8, 8, 8);
+      border-left: 100px solid transparent;
+      transform: rotate(-70deg);
+      content: '';
+    }
+    #star-five2 {
+      margin: 50px 0;
+      position: relative;
+      display: block;
+      color: red;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid red;
+      border-left: 100px solid transparent;
+      transform: rotate(35deg);
+      animation: moveX2 5.05s linear 0s infinite alternate, moveY2 5.4s linear 0s infinite alternate;
+  
+    }
+    #star-five2:before {
+      border-bottom: 80px solid red;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      position: absolute;
+      height: 0;
+      width: 0;
+      top: -45px;
+      left: -65px;
+      display: block;
+      content: '';
+      transform: rotate(-35deg);
+    }
+    #star-five2:after {
+      position: absolute;
+      display: block;
+      color: red;
+      top: 3px;
+      left: -105px;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid red;
+      border-left: 100px solid transparent;
+      transform: rotate(-70deg);
+      content: '';
+    }
+    @keyframes moveX {
+  from { left: 0; } to { left: 85%; }
+}
+@keyframes moveY {
+  from { top: 0; } to { top:700px; }
+}
+@keyframes moveX1 {
+  from { left: 0; } to { left: 900px; }
+}
+@keyframes moveY1 {
+  from { top: 0; } to { top:500px; }
+}
+@keyframes moveX2 {
+  from { left: 0; } to { left: 900px; }
+}
+@keyframes moveY2 {
+  from { top: 0; } to { top:500px; }
+}
+</style>
+</head>
+<body>
+    <div>
+       <div id="star-five">
+
+       </div>
+
+       <div id="star-five1">
+
+    </div>
+    <div id="star-five2">
+
+    </div>
+
+    </div>
+</body>
+</html>

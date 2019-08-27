@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <head>
+    <style>
+      
+body {
+  background: #1995ad;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        color:rgb(10, 9, 9);
+  font-size: 20px;
+ 
+}
+
+#container {
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px white;
+  padding: 3rem;
+  text-shadow: 0 1px #00000010;
+  width: 60%;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  background-image: url('image/bg1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.option {
+  padding: 0.5rem;
+  display:block;
+  width: 80%;
+  color: #00000095;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.option:hover {
+  
+  background: rgba(231, 10, 10, 0.4);
+
+}
+.option input:checked .option {
+  background: #08038c;
+  color: #000;
+}
+
+header {
+  text-align: center;
+  border-bottom: gold solid 1px;
+}
+
+header h1,
+header p {
+  margin :0;
+  padding :0;
+}
+
+header p {
+  margin-top: 5px;
+  color: goldenrod;
+}
+
+section {
+  min-height: 400px;
+}
+
+input[type="button"] {
+  background: #f06226;
+  border: 0;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+#modal-content {
+   display:none;
+  z-index: 1;
+
+width: 50%; 
+height:600px; 
+background-color: gold;
+margin:0 auto; 
+
+text-align:center;
+margin-top:30px;
+font-weight: bold;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#certificate
+    {
+      width:1000px; 
+      height:725px;
+       padding:20px;
+        text-align:center; 
+opacity: 0;
+background-size:cover;
+text-align:center;
+margin-top:30px;
+font-weight: bold;
+border: 10px solid gold;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#ribbon {
+		padding: .34em 1em;
+		margin: 20px;
+		position:relative;
+		color: #333;
+		font: 32px 'Patua One', sans-serif;
+		text-align: center;
+		letter-spacing:0.1em;
+		text-shadow: 0px -1px 0px rgba(0,0,0,0.3);
+		box-shadow: inset 0px 1px 0px rgba(255,255,255,.3),
+					inset 0px 0px 20px rgba(0,0,0,0.1),
+					0px 1px 1px rgba(0,0,0,0.4);
+		 background: -webkit-linear-gradient(top,gold, #928617);
+      display:block;
+	}
+	
+#ribbon:before, #ribbon:after {
+		content: "";
+		width:.2em;
+		bottom:-.5em;
+		position:absolute;
+		display:block;
+		border: .9em solid gold;
+		box-shadow:0px 1px 0px rgba(0,0,0,0.4);
+		z-index:-2;
+	}
+	
+#ribbon:before {
+		left:-1.35em;
+		border-right-width: .75em;
+		border-left-color:transparent;
+	}
+	
+#ribbon:after {
+		right:-1.35em;
+		border-left-width: .75em;
+		border-right-color:transparent;
+	}
+	
+#content:before, #content:after {
+		content:"";
+		bottom:-.5em;
+		position:absolute;
+		display:block;
+		border-style:solid;
+		border-color: rgb(17, 16, 12) transparent transparent transparent;
+		z-index:-1;
+	}
+	
+#content:before {
+	  left: 0;
+	  border-width: .5em 0 0 .5em;
+	}
+	
+#content:after {
+	  right: 0;
+	  border-width: .5em .5em 0 0;
+	}
+
+.badge {
+  flex-direction: column;
+float: left;
+}
+  .icon {
+    height: 120px;
+    width: 120px;
+    background: silver;
+    border-radius: 200px;
+    border: 8px outset grey;
+    display: flex;
+    z-index: 200;
+    background: linear-gradient(133deg, #e5b233 0%,#bf952b 100%);
+      border-color: #FFC433;
+      z-index: 200;
+  }
+  .icon-text {
+    font-family: 'Bungee', sans-serif;
+    width: 120px;
+    border: 8px inset grey;
+    border-radius: 15px;
+    background: silver;
+    color: grey;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    margin-top: -8px;
+    padding: 10px 0px;
+     background: linear-gradient(133deg, #e5b233 0%,#bf952b 100%);
+      border-color: #FFC433;
+    
+  }
+.h3 {
+      display: inline-block;
+      margin: 0px;
+         color: #996D00;
+         font-size: 20px;
+    }
+    .fa-trophy
+    {
+      font-size:100px;
+      color:#333;
+    }
+  #btn
+  {
+    height: 50px;
+    width:300px;
+    color:gold;
+    background:#333;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size:20px;
+  }
+#btn:hover{
+  opacity:0.5;
+  cursor: pointer;
+}
+ @media screen and (max-width: 950px) {
+   #body
+   {
+     padding: 0px;
+   }
+#time
+{
+  position:fixed;
+  top:10px;
+  right:0;
+  background: rgba(0,0,0,0.5)
+}
+#container,#modal-content,#certificate
+{
+  height:100%;
+  width:100%;
+  
+}
+}
+    </style>
+    <script>
+    
+    </script>
+    <script>
+
+function submitAnswers() {
+  var total = 25;
+  var score = 0;
+  var percentage=0;
+  //Get user input
+  var q1 = document.forms['quizForm']['q1'].value;
+  var q2 = document.forms['quizForm']['q2'].value;
+  var q3 = document.forms['quizForm']['q3'].value;
+  var q4 = document.forms['quizForm']['q4'].value;
+  var q5 = document.forms['quizForm']['q5'].value;
+  var q6 = document.forms['quizForm']['q6'].value;
+  var q7 = document.forms['quizForm']['q7'].value;
+  var q8 = document.forms['quizForm']['q8'].value;
+  var q9 = document.forms['quizForm']['q9'].value;
+  var q10 = document.forms['quizForm']['q10'].value;
+  var q11= document.forms['quizForm']['q11'].value;
+  var q12 = document.forms['quizForm']['q12'].value;
+  var q13 = document.forms['quizForm']['q13'].value;
+  var q14 = document.forms['quizForm']['q14'].value;
+  var q15 = document.forms['quizForm']['q15'].value;
+  var q16 = document.forms['quizForm']['q16'].value;
+  var q17 = document.forms['quizForm']['q17'].value;
+  var q18 = document.forms['quizForm']['q18'].value;
+  var q19 = document.forms['quizForm']['q19'].value;
+  var q20 = document.forms['quizForm']['q20'].value;
+  var q21 = document.forms['quizForm']['q21'].value;
+  var q22 = document.forms['quizForm']['q22'].value;
+  var q23 = document.forms['quizForm']['q23'].value;
+  var q24 = document.forms['quizForm']['q24'].value;
+  var q25 = document.forms['quizForm']['q25'].value;
+  
+  // Validation  
+  for(var i = 1; i <= total; i++) {
+    if(eval('q' + i) === null || eval('q' + i) == '' ) {
+      alert('You missed question ' + i);
+      return false;
+    }
+  }
+  
+  // Set correct answers
+  var answers = ["b","d","a","b","b","d","a","b","d","d","c","c","a","c","b","c","d","a","a","a","c","b","a","c","a"];
+  
+  for(var i = 1; i <= total; i++) {
+    // Check answers
+    if (eval('q' + i) == answers[i - 1]) {
+      score++;
+    }
+  }
+  percentage=(score/25)*100;
+  document.getElementById('container').style.display="none";
+  document.getElementById('modal-content').style.display="block";
+
+  // Display results
+  var results = document.getElementById('results');
+  results.innerHTML = '<h3>You scored <span>' + score + '</span> out of <span>' + total + '</span></h3><h3>Your Percentage: <span>'+ percentage + '</span> % <span>';
+  var percent=document.getElementById('percent');
+  percent.innerHTML = percentage + '<span>%</span>';
+  //alert('You scored ' + score + ' out of ' + total);
+  
+  return false;
+  
+}
+    </script>
+    <script>
+    var sec = 60;
+var time = setInterval(myTimer, 1000);
+
+function myTimer() {
+    document.getElementById('timer').innerHTML = sec + "sec left";
+    sec--;
+    if (sec == -1) {
+     
+        clearInterval(time);
+        alert("Time out!! :(");
+    }
+   
+}
+    
+    
+    </script>
+</head>
+<body id="body">
+  <span style="float:right;color:azure;font-size:30px;position:fixed;right:0" id="time">Time : <span id="timer"></span></span>
+    
+        <div id="container">
+                <header>
+                  <h1>LEVEL 1 QUIZ</h1>
+                  <p>Test your knowledge in <strong>JavaScript Fundamentals</strong></p>
+                </header>
+                <section>
+      
+                  <form name="quizForm" method="POST" >
+                    <h3>1. Inside which HTML element do we put the JavaScript?</h3>
+                  <label class="option">
+                      <input type="radio" name="q1" value="a" id="q1a">a. &lt;js&gt;
+                  </label>  
+                  <label class="option">
+                      <input type="radio" name="q1" value="b" id="q1b">b. &lt;script&gt;
+                    </label>
+                  <label class="option">
+                      <input type="radio" name="q1" value="c" id="q1c">c. &lt;body&gt;
+                  </label> 
+                  <label class="option">
+                      <input type="radio" name="q1" value="d" id="q1d">d. &lt;link&gt;
+                  </label>     
+                    <h3>2. What is the correct JavaScript syntax to change the content of the HTML element below?</h3>
+                    <label class="option">
+                    <input type="radio" name="q2" value="a" id="q2a">a. document.getElementByName("p") . innerHTML = "Hello World!";
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q2" value="b" id="q2b">b. #demo . innerHTML = "Hello World!";
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q2" value="c" id="q2c">c. document.getElement("p") . innerHTML = "Hello World!";
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q2" value="d" id="q2d">d. document.getElementById("demo") . innerHTML = "Hello World!";  
+                    </label>  
+                    <h3>3. Where is the correct place to insert a JavaScript?</h3>
+                    <label class="option">
+                    <input type="radio" name="q3" value="a" id="q3a">a. Both the &lt;head&gt; section and the &lt;body&gt; section are correct
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q3" value="b" id="q3b">b. The &lt;body&gt; section
+                    </label> 
+                    <label class="option">
+                    <input type="radio" name="q3" value="c" id="q3c">c. The &lt;head&gt; section  
+                    </label>
+                    
+                    <h3>4. What is the correct syntax for referring to an external script called "xxx.js"?</h3>
+                    <label class="option">
+                    <input type="radio" name="q4" value="a" id="q4a">a. &lt;script href="xxx.js"&gt;
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q4" value="b" id="q4b">b. &lt;script src="xxx.js"&gt;
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q4" value="c" id="q4c">c. &lt;script name="xxx.js"&gt; 
+                    </label>
+                    <h3>5. The external JavaScript file must contain the &lt;script&gt; tag.</h3>
+                    <label class="option">
+                    <input type="radio" name="q5" value="a" id="q5a">a. True
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q5" value="b" id="q5b">b. False 
+                    </label>
+                    <h3>6. How do you write "Hello World" in an alert box?</h3>
+                    <label class="option">
+                    <input type="radio" name="q6" value="a" id="q6a">a. msgBox("Hello World");
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q6" value="b" id="q6b">b. alertBox("Hello World");
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q6" value="c" id="q6c">c. msg("Hello World"); 
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q6" value="d" id="q6d">d. alert("Hello World");  
+                    </label>
+                    <h3>7. How do you create a function in JavaScript?</h3>
+                    <label class="option">
+                    <input type="radio" name="q7" value="a" id="q7a">a. function myFunction()
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q7" value="b" id="q7b">b. function = myFunction()  
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q7" value="c" id="q7c">c. function:myFunction() 
+                    </label>
+                    <h3>8. How do you call a function named "myFunction"?</h3>
+                    <label class="option">
+                    <input type="radio" name="q8" value="a" id="q8a">a. call function myFunction()
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q8" value="b" id="q8b">b. myFunction() 
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q8" value="c" id="q8c">c. call myFunction()
+                     </label>
+                    <h3>9. How to write an IF statement in JavaScript?</h3>
+                    <label class="option">
+                    <input type="radio" name="q9" value="a" id="q9a">a. if i = 5 then
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q9" value="b" id="q9b">b. if i == 5 then 
+                    </label>
+                    <label class="option"> 
+                    <input type="radio" name="q9" value="c" id="q9c">c. if i = 5  
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q9" value="d" id="q9d">d. if (i == 5)  
+                    </label>
+                    <h3>10. How to write an IF statement for executing some code if "i" is NOT equal to 5?</h3>
+                    <label class="option">
+                    <input type="radio" name="q10" value="a" id="q10a">a. if i =! 5 then
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q10" value="b" id="q10b">b. if (i &lt;&gt; 5) 
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q10"   value="c" id="q10c">c. if i &lt;&gt; 5
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q10"    value="d" id="q10d">d. if (i != 5) 
+                    </label>
+                    <h3>11. How does a WHILE loop start?</h3>
+                    <label class="option">
+                    <input type="radio" name="q11" value="a" id="q11a">a. while (i &lt;= 10; i++)
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q11" value="b" id="q11b">b. while i = 1 to 10  
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q11" value="c" id="q11c">c. while (i &lt;= 10) 
+                    </label>
+                    
+                    <h3>12. How does a FOR loop start?</h3>
+                    <label class="option">
+                    <input type="radio" name="q12" value="a" id="q12a">a. for (i &lt;= 5; i++)
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q12" value="b" id="q12b">b. for i = 1 to 5  
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q12" value="c" id="q12c">c. for (i = 0; i &lt;= 5; i++) 
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q12" value="d" id="q12d">d. for (i = 0; i &lt;= 5)  
+                    </label>
+                    
+                    <h3>13. How can you add a comment in a JavaScript?</h3>
+                    <label class="option">
+                    <input type="radio" name="q13" value="a" id="q13a">a. //This is a comment
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q13" value="b" id="q13b">b. &lt;!--This is a comment--&gt; 
+                    </label>
+                    <label class="option"> 
+                    <input type="radio" name="q13" value="c" id="q13c">c. 'This is a comment  
+                      </label>
+                    
+                    <h3>14. How to insert a comment that has more than one line?</h3>
+                    <label class="option">
+                    <input type="radio" name="q14" value="a" id="q14a">a. &lt;!--This comment has more than one line--&gt;
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q14" value="b" id="q14b">b. //This comment has more than one line//  
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q14" value="c" id="q14c">c. /*This comment has more than one line*/  
+                    </label>
+                    
+                    <h3>15. What is the correct way to write a JavaScript array?</h3>
+                    <label class="option">
+                    <input type="radio" name="q15" value="a" id="q15a">a. var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q15" value="b" id="q15b">b. var colors = ["red", "green", "blue"]  
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q15" value="c" id="q15c">c. var colors = "red", "green", "blue" 
+                    </label>
+                    <label class="option">  
+                    <input type="radio" name="q15" value="d" id="q15d">d. var colors = (1:"red", 2:"green", 3:"blue")  
+                    </label>
+                    
+                    <h3>16. How do you round the number 7.25, to the nearest integer?</h3>
+                    <label class="option">
+                    <input type="radio" name="q16" value="a" id="q16a">a. round(7.25)
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q16" value="b" id="q16b">b. rnd(7.25) 
+                    </label>
+                    <label class="option"> 
+                    <input type="radio" name="q16" value="c" id="q16c">c. Math.round(7.25) 
+                    </label>
+                    <label class="option"> 
+                    <input type="radio" name="q16" value="d" id="q16d">d. Math.rnd(7.25)  
+                    </label>
+                    
+                    <h3>17. How do you find the number with the highest value of x and y?</h3>
+                    <label class="option">
+                    <input type="radio" name="q17" value="a" id="q17a">a. ceil(x, y)
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q17" value="b" id="q17b">b. Math.ceil(x, y)  
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q17" value="c" id="q17c">c. top(x, y) 
+                    </label>
+                    <label class="option">  
+                    <input type="radio" name="q17" value="d" id="q17d">d. Math.max(x, y)  
+                    </label>
+                    
+                    <h3>18. What is the correct JavaScript syntax for opening a new window called "w2" ?</h3>
+                    <label class="option">
+                    <input type="radio" name="q18" value="a" id="q18a">a. w2 = window.open("http://www. w3schools .com");
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q18" value="b" id="q18b">b. w2 = window.new("http://www. w3schools .com");  
+                    </label>
+                    
+                    <h3>19. JavaScript is the same as Java.</h3>
+                    <label class="option">
+                    <input type="radio" name="q19" value="a" id="q18a">a. False
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q19" value="b" id="q18b">b. True  
+                    </label>
+                    
+                    <h3>20. How can you detect the client's browser name?</h3>
+                    <label class="option">
+                    <input type="radio" name="q20" value="a" id="q20a">a. navigator.appName
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q20" value="b" id="q20b">b. client.navName  
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q20" value="c" id="q20c">c. browser.name   
+                    </label>
+                    
+                    <h3>21. Which event occurs when the user clicks on an HTML element?</h3>
+                    <label class="option">
+                    <input type="radio" name="q21" value="a" id="q21a">a. onmouseclick
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q21" value="b" id="q21b">b. onchange 
+                    </label>
+                    <label class="option"> 
+                    <input type="radio" name="q21" value="c" id="q21c">c. onclick 
+                    </label>
+                    <label class="option">  
+                    <input type="radio" name="q21" value="d" id="q21d">d. onmouseover  
+                    </label>
+                    
+                    <h3>22. How do you declare a JavaScript variable?</h3>
+                    <label class="option">
+                    <input type="radio" name="q22" value="a" id="q22a">a. v carName;
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q22" value="b" id="q22b">b. var carName;
+                    </label>
+                    <label class="option">  
+                    <input type="radio" name="q22" value="c" id="q22c">c. variable carName;
+                    </label>
+                    
+                    <h3>23. Which operator is used to assign a value to a variable?</h3>
+                    <label class="option">
+                    <input type="radio" name="q23" value="a" id="q23a">a. =
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q23" value="b" id="q23b">b. *  
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q23" value="c" id="q23c">c. x
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q23" value="d" id="q23d">d. -  
+                    </label>
+                    
+                    <h3>24. What will the following code return: Boolean(10 > 9)</h3>
+                    <label class="option">
+                    <input type="radio" name="q24" value="a" id="q24a">a. NaN
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q24" value="b" id="q24b">b. false
+                    </label>
+                    <label class="option">  
+                    <input type="radio" name="q24" value="c" id="q24c">c. true
+                    </label>
+                    
+                    <h3>25. Is JavaScript case-sensitive?</h3>
+                    <label class="option">
+                    <input type="radio" name="q25" value="a" id="q25a">a. Yes
+                    </label>
+                    <label class="option">
+                    <input type="radio" name="q25" value="b" id="q25b">b. No  
+                      </label>
+                    <br><br>
+                    <input type="button" value="Submit Answers" onclick="submitAnswers()">
+                  </form>
+                </section>
+
+              </div>
+              
+
+
+  <!-- Modal content -->
+  <div id="modal-content">
+      <img src="image/tick2.png" alt="">
+      <h1 style="color:green">Completed successfully!</h1>
+          <div id="results">
+          </div>
+          <br>
+          <div id="editor"></div>
+          <button id="btn">Click to get your Level 1 Certificate</button>
+        </div>
+        <div id="certificate">
+            <div style="height:675px; padding:20px; text-align:center; border: 5px solid gold">
+              
+              <div id="ribbon">
+                <span id="content">SNOOPCODE</span>
+              </div>
+            
+              <div class="badge gold-badge"> 
+                <div class="icon">
+                  <span style="padding:10px;"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                </div>
+                <div class="icon-text">
+                  <h3 class="h3">JAVASCRIPT</h3></div>
+              </div>
+              <br><br><br>
+              <div style="float:right; text-align:center;width:810px;height: 600px;">
+                <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
+                <br><br>
+                <span style="font-size:25px"><i>This is to certify that</i></span>
+                <br><br>
+                <span style="font-size:30px"><b>gayathri</b></span><br/><br/>
+                <span style="font-size:25px"><i>has completed the training</i></span> <br/><br/>
+                <span style="font-size:30px">Javascript Level 1 </span> <br/><br/>
+                <span style="font-size:20px">with score of <b><span id="percent"></span></b></span> <br/><br/><br/>
+                <span style="font-size:25px"><i>dated</i></span><br>
+               
+               <span id="date" style="font-size:30px"></span>
+    
+
+              </div>
+                
+
+        </div>
+        </div>
+       
+<script>
+ (function () {  
+          var  
+           form = $('#certificate'),  
+           cache_width = form.width(),  
+           a4 = [800, 600]; // for a4 size paper width and height  
+    
+          $('#btn').on('click', function () {  
+              $('body').scrollTop(0);  
+              document.getElementById('certificate').style.visibility="block";
+              createPDF();  
+          });  
+          //create pdf  
+          function createPDF() {  
+              getCanvas().then(function (canvas) {  
+                  var  
+                   img = canvas.toDataURL("image/png"),  
+                   doc = new jsPDF('l', 'pt', 'a4'),
+        pdfConf = {
+          pagesplit: false,
+          useOverflow: true,
+          background: '#fff'
+        };
+                  doc.addImage(img, 'JPEG', 0, 0);  
+                  doc.save('certificate.pdf');  
+                  form.width(cache_width);  
+              });  
+          }  
+    
+          // create canvas object  
+          function getCanvas() {  
+              form.width((a4[0] * 1.32) - 0).css('min-width', 'none');  
+              return html2canvas(form, {  
+                  imageTimeout: 1000,  
+                  removeContainer: false 
+              });  
+          }  
+    
+      }());  
+    
+
+</script>
+ <script>
+    
+  var d = new Date();
+      var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      document.getElementById("date").innerHTML =months[d.getMonth()]+' '+d.getDate()+', '+ d.getFullYear();
+    
+   </script>
+</body>
+</html>

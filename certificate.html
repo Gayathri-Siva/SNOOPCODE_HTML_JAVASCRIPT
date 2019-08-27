@@ -1,0 +1,218 @@
+<!doctype>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>jsPDF</title>
+       	<style>
+       #certificate
+    {
+      width:1000px; 
+      height:725px;
+       padding:20px;
+        text-align:center; 
+background-size:cover;
+text-align:center;
+margin-top:30px;
+font-weight: bold;
+border: 10px solid gold;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#ribbon {
+		padding: .34em 1em;
+		margin: 0;
+		margin-top: 5%;
+		position:relative;
+		color: #333;
+		font: 32px 'Patua One', sans-serif;
+		text-align: center;
+		letter-spacing:0.1em;
+		text-shadow: 0px -1px 0px rgba(0,0,0,0.3);
+		box-shadow: inset 0px 1px 0px rgba(255,255,255,.3),
+					inset 0px 0px 20px rgba(0,0,0,0.1),
+					0px 1px 1px rgba(0,0,0,0.4);
+		 background: -webkit-linear-gradient(top,gold, #928617);
+      display: inline-block;
+	}
+	
+#ribbon:before, #ribbon:after {
+		content: "";
+		width:.2em;
+		bottom:-.5em;
+		position:absolute;
+		display:block;
+		border: .9em solid gold;
+		box-shadow:0px 1px 0px rgba(0,0,0,0.4);
+		z-index:-2;
+	}
+	
+#ribbon:before {
+		left:-1.35em;
+		border-right-width: .75em;
+		border-left-color:transparent;
+	}
+	
+#ribbon:after {
+		right:-1.35em;
+		border-left-width: .75em;
+		border-right-color:transparent;
+	}
+	
+#content:before, #content:after {
+		content:"";
+		bottom:-.5em;
+		position:absolute;
+		display:block;
+		border-style:solid;
+		border-color: rgb(17, 16, 12) transparent transparent transparent;
+		z-index:-1;
+	}
+	
+#content:before {
+	  left: 0;
+	  border-width: .5em 0 0 .5em;
+	}
+	
+#content:after {
+	  right: 0;
+	  border-width: .5em .5em 0 0;
+	}
+
+.badge {
+  margin: 10px;
+  display:inline-block;
+  flex-direction: column;
+  position:absolute;
+  left:70px;
+  top:110px;
+}
+  .icon {
+    height: 120px;
+    width: 120px;
+    background: silver;
+    border-radius: 200px;
+    border: 8px outset grey;
+    display: flex;
+    z-index: 200;
+    background: linear-gradient(133deg, #e5b233 0%,#bf952b 100%);
+      border-color: #FFC433;
+      z-index: 200;
+  }
+  .icon-text {
+    font-family: 'Bungee', sans-serif;
+    width: 120px;
+    border: 8px inset grey;
+    border-radius: 15px;
+    background: silver;
+    color: grey;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    margin-top: -8px;
+    padding: 10px 0px;
+     background: linear-gradient(133deg, #e5b233 0%,#bf952b 100%);
+      border-color: #FFC433;
+    
+  }
+h3 {
+      display: inline;
+      margin: 0px;
+         color: #996D00;
+    }
+    .fa-trophy
+    {
+      font-size:100px;
+      color:#333;
+    }
+  
+
+  </style>
+  <script>
+    // setTimeout(function () {
+    //    window.location.href = "quiz.html"; //will redirect to your blog page (an ex: blog.html)
+    // }, 100);
+   </script>
+  
+ </head>
+<body>
+     
+   <div id="certificate">
+<div style="height:675px; padding:20px; text-align:center; border: 5px solid gold">
+    <div class="badge gold-badge">
+        <div class="icon">
+          <span style="padding:10px;"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+        </div>
+        <div class="icon-text">
+          <h3>JAVASCRIPT</h3></div>
+      </div>        
+    <div id="ribbon">
+                <span id="content">SNOOPCODE</span>
+              </div><br><br><br>
+                <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
+            <br><br>
+            <span style="font-size:25px"><i>This is to certify that</i></span>
+            <br><br>
+            <span style="font-size:30px"><b>gayathri</b></span><br/><br/>
+            <span style="font-size:25px"><i>has completed the training</i></span> <br/><br/>
+            <span style="font-size:30px">Javascript Level 1 </span> <br/><br/>
+            <span style="font-size:20px">with score of <b>90%</b></span> <br/><br/><br/>
+            <span style="font-size:25px"><i>dated</i></span><br>
+           
+           <span id="date" style="font-size:30px"></span>
+
+
+        </div>
+
+
+   </div>
+          
+<script>
+          
+          $(document).ready(function () { 
+       
+          var  
+           form = $('#certificate'),  
+           cache_width = form.width(),  
+           a4 = [800, 600]; // for a4 size paper width and height  
+           createPDF();
+         
+          //create pdf  
+          function createPDF() {  
+              getCanvas().then(function (canvas) {  
+                  var  
+                   img = canvas.toDataURL("image/png"),  
+                   doc = new jsPDF('l', 'pt', 'a4'),
+        pdfConf = {
+          pagesplit: false,
+          useOverflow: true,
+          background: '#fff'
+        };
+                  doc.addImage(img, 'JPEG', 0, 0);  
+                  doc.save('certificate.pdf');  
+                  form.width(cache_width);  
+              });  
+          }  
+    
+          // create canvas object  
+          function getCanvas() {  
+              form.width((a4[0] * 1.32) - 0).css('min-width', 'none');  
+              return html2canvas(form, {  
+                  imageTimeout: 1000,  
+                  removeContainer: false 
+              });  
+          }  
+    
+      }());  
+    
+    </script>
+   <script>
+    
+    var d = new Date();
+        var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        document.getElementById("date").innerHTML =months[d.getMonth()]+' '+d.getDate()+', '+ d.getFullYear();
+      
+     </script>
+</body>
+</html>
